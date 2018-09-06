@@ -1,6 +1,6 @@
 //config/express.js
 var express = require('express');
-var home = require('./app/routes/home');
+var home = require('../app/routes/home');
 
 
 module.exports = function () {
@@ -12,11 +12,11 @@ module.exports = function () {
 	//middleware
 	app.use(express.static('./public'));
 
-	home(app);
-
 	app.set('view-engine','ejs');
 
 	app.set('views','./app/views');
+
+	home(app);
 
 	return app;
 }
